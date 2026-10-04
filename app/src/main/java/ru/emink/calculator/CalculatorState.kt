@@ -1,5 +1,8 @@
 package ru.emink.calculator
 
+import java.math.BigDecimal
+import java.math.MathContext
+
 private const val MAX_INPUT_LENGTH = 16
 
 enum class Operation {
@@ -24,19 +27,31 @@ data class CalculatorState(
         }
         if (display.length >= MAX_INPUT_LENGTH) return this
 
-        val nextDisplay = if (display == "0") digitText else display + digitText
+        val nextDisplay = when (display) {
+            "0" -> digitText
+            "-0" -> "-$digitText"
+            else -> display + digitText
+        }
         return copy(display = nextDisplay)
     }
 
     fun inputDecimal(): CalculatorState {
         if (startNewEntry) return copy(display = "0.", startNewEntry = false)
+        if (display == "-") return copy(display = "-0.")
         if ('.' in display || display.length >= MAX_INPUT_LENGTH) return this
         return copy(display = "$display.")
     }
 
     fun selectOperation(operation: Operation): CalculatorState {
         if (startNewEntry && pendingOperation != null) {
+            if (operation == Operation.SUBTRACT) {
+                return copy(display = "-", startNewEntry = false)
+            }
             return copy(pendingOperation = operation)
+        }
+
+        if (display == "-") {
+            return copy(display = "0", pendingOperation = operation, startNewEntry = true)
         }
 
         val currentValue = display.toDouble()
@@ -84,7 +99,10 @@ data class CalculatorState(
     }
 
     private fun format(value: Double): String {
-        val text = value.toString()
-        return if (text.endsWith(".0")) text.dropLast(2) else text
+        if (!value.isFinite()) return value.toString()
+        return BigDecimal.valueOf(value)
+            .round(MathContext.DECIMAL64)
+            .stripTrailingZeros()
+            .toPlainString()
     }
 }
