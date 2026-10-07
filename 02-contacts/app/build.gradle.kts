@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "ru.emink.calculator"
+    namespace = "ru.emink.contacts"
     compileSdk = 37
 
     defaultConfig {
-        applicationId = "ru.emink.calculator"
+        applicationId = "ru.emink.contacts"
         minSdk = 26
         targetSdk = 37
         versionCode = 1
@@ -21,16 +21,12 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro",
-            )
         }
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     buildFeatures {
@@ -40,7 +36,7 @@ android {
 
 kotlin {
     compilerOptions {
-        jvmTarget.set(JvmTarget.JVM_11)
+        jvmTarget.set(JvmTarget.JVM_17)
     }
 }
 

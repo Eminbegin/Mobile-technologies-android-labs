@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="01 Calculator" type="AndroidRunConfigurationType" factoryName="Android App">
-    <module name="AndroidLabs.calculator" />
+  <configuration default="false" name="02 Contacts" type="AndroidRunConfigurationType" factoryName="Android App">
+    <module name="AndroidLabs.contacts" />
     <option name="DEPLOY" value="true" />
     <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
     <option name="DEPLOY_AS_INSTANT" value="false" />
