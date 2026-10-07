@@ -4,15 +4,16 @@ plugins {
 }
 
 android {
-    namespace = "ru.emink.empty"
+    namespace = "ru.emink.contacts"
     compileSdk = 37
 
     defaultConfig {
-        applicationId = "ru.emink.empty"
+        applicationId = "ru.emink.contacts"
         minSdk = 26
         targetSdk = 37
         versionCode = 1
         versionName = "1.0"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -38,7 +39,13 @@ dependencies {
     implementation("androidx.activity:activity-compose:1.13.0")
     implementation(composeBom)
     implementation("androidx.compose.ui:ui")
+    implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
 
     debugImplementation("androidx.compose.ui:ui-tooling")
+    debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+    androidTestImplementation(composeBom)
+    androidTestImplementation("androidx.test.ext:junit:1.3.0")
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
 }

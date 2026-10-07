@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Empty Project</string>
+    <string name="app_name">Contacts</string>
+    <string name="permission_required">Contacts permission is required</string>
+    <string name="grant_permission">Grant permission</string>
+    <string name="no_contacts">No contacts found</string>
+    <plurals name="contacts_count">
+        <item quantity="one">Found %1$d contact</item>
+        <item quantity="other">Found %1$d contacts</item>
+    </plurals>
 </resources>
