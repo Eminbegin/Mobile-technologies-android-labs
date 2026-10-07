@@ -133,8 +133,7 @@ private fun ContactsApp() {
                     modifier = Modifier.weight(1f),
                 ) {
                     items(contacts.orEmpty()) { contact ->
-                        Text(
-                            text = contact.name.orEmpty(),
+                        Column(
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .clickable {
@@ -146,7 +145,10 @@ private fun ContactsApp() {
                                     )
                                 }
                                 .padding(16.dp),
-                        )
+                        ) {
+                            Text(contact.name.orEmpty())
+                            Text(contact.phoneNumber.orEmpty())
+                        }
                     }
                 }
             }
