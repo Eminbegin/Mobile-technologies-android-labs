@@ -14,9 +14,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "AndroidLabs"
-include(":calculator")
-include(":contacts")
-
-project(":calculator").projectDir = file("01-calculator/app")
-project(":contacts").projectDir = file("02-contacts/app")
+rootProject.name = "EmptyProject"
+include(":app")
