@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Empty Project</string>
+    <string name="app_name">Чаты</string>
+    <string name="chats_title">Чаты</string>
+    <string name="select_chat">Выберите чат</string>
+    <string name="back">Назад</string>
+    <string name="close">Закрыть</string>
+    <string name="retry">Повторить</string>
+    <string name="load_error">Не удалось загрузить данные</string>
+    <string name="no_chats">Нет чатов</string>
+    <string name="no_messages">Нет сообщений</string>
+    <string name="image_description">Изображение</string>
 </resources>
